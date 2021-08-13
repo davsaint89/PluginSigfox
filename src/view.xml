@@ -1,0 +1,9 @@
+<form name="formName">
+    <group name="ubidotsInformation">
+        <group name="fieldToken">
+            <label name="labelToken">Token</label>
+            <token name="token" placeholder="Select Token"/>
+        </group>
+    </group>
+</form>
+
