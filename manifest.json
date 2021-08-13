@@ -1,0 +1,10 @@
+{
+  "version": "0.0.1",
+  "runtime": "python:3.7",
+  "environment": {},
+  "plugin_type": "webhook",
+  "interval": 1,
+  "default_http_method": "POST",
+  "license_name": "MIT License",
+  "price": 0
+}
