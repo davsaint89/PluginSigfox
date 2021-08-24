@@ -13,9 +13,9 @@ there's a test payload you may use to test your decoding function and once you a
 
 # return
 
-The decoding function must return a json payload in order to provision the Ubidots device for instance: 
+The decoding function must return a python dictionary with a valid structure in order to provision the Ubidots device for instance: 
 
-{"temperature": {"value":10, "timestamp": 1534881387000, "context": {"machine": "1st floor"}}}
+{"variable1": {'value': "12.5", 'context':{'lat':-23.6, 'ln':45.2}}}
 
 # License
 [MIT]
