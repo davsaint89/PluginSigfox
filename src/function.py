@@ -1,6 +1,6 @@
 import requests
 import json
-
+from user_code import format_payload
 
 def main(args):
 
@@ -15,7 +15,8 @@ def main(args):
         #args.pop("token")
         device_label = args['device_id']
         args.pop("device_id")
-        payload =json.dumps(args)
+        payload = format_payload(args)
+        #payload =json.dumps(args)
         #print(payload)
         response = ubidots_request(device_label, payload, token)
         print(response, response.json())
