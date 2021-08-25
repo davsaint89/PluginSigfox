@@ -49,46 +49,8 @@ def set_device_type(device_type):
     'deviceColor': tti_main_color,
     'deviceIcon': 'wifi',
     'variableColor': tti_secondary_color,
-    'properties': [{
-            "key": "app_id",
-            "text": "App ID",
-            "type": "text",
-            "value": ''
-        },{
-            "key": "dev_eui",
-            "text": "Dev EUI",
-            "type": "text",
-            "value": ''
-        },{
-            "key": "dev_addr",
-            "text": "Dev Addr",
-            "type": "text",
-            "value": ''
-        }],
-        'variables': [
-                {
-                    'properties': {
-                        '_icon': 'calculator',
-                        '_color': tti_secondary_color
-                    },
-                    'label': 'f_cnt',
-                    'name': 'Frame counter',
-                    'description': '',
-                    'unit': '',
-                    'type': 0
-                },
-                {
-                    'properties': {
-                        '_icon': 'sign-in-alt',
-                        '_color': tti_secondary_color
-                    },
-                    'label': 'f_port',
-                    'name': 'F Port',
-                    'description': '',
-                    'unit': '',
-                    'type': 0
-                }
-        ]
+    'properties': [],
+        'variables': []
     }
     return device_type_data
 
