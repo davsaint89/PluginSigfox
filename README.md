@@ -1,10 +1,18 @@
 # SigfoxPlugin
 
-It's a Python v3.7 program wich facilitates the communicacion between Sigfox and Ubidots by providing an API endpoint for Sigfox and a user code space for decoding the Sigfox hexadecimal message, then it provisions a Ubidots device with the decoded data.
+Recieve and decode data from Sigfox devices. 
+
+This plugin facilitates the communicacion between Sigfox and Ubidots by providing an API endpoint for Sigfox and a user code space for decoding the Sigfox hexadecimal message, then it provisions a Ubidots device with the decoded data.
 
 # Instalation 
 
 In your Ubidots account go to Devices --> Plugins, click the plus sign, select the Sigfox plugin and click on the > button
+
+# Inputs
+
+Ubidots device Type: An Ubidots device type will be created and linked to this plugin. This allows you to make batch changes to all of the devices that receive data through this plugin.
+
+
 
 # Usage
 
