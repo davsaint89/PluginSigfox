@@ -7,8 +7,6 @@ from user_code import format_payload
 
 BASE_URL = 'https://industrial.api.ubidots.com'
 
-
-
 def main(args):
     setup(args)
     if not args['_parameters'].get('token'):
