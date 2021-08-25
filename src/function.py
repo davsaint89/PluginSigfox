@@ -1,6 +1,5 @@
 import requests
 import json
-from control import setup
 from user_code import format_payload
 
 
@@ -8,7 +7,7 @@ from user_code import format_payload
 BASE_URL = 'https://industrial.api.ubidots.com'
 
 def main(args):
-    setup(args)
+
     if not args['_parameters'].get('token'):
         print("[ERROR] Ubidots token not specified")
         return {"status":"error"}
