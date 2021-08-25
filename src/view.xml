@@ -1,7 +1,13 @@
 <form name="formName">
+    <group name="group1">
+        <group name="sigfoxInformation">
+            <label name="device_type_name" help="An Ubidots device type will be created using this field as the Type label. Leave blank to avoid Type creation">Ubidots device type</label>
+            <input name="device_type" type="text" value="sigfox-devices"/>
+        </group>
+    </group>
     <group name="ubidotsInformation">
         <group name="fieldToken">
-            <label name="labelToken">Token</label>
+            <label name="labelToken">Ubidots Token</label>
             <token name="token" placeholder="Select Token"/>
         </group>
     </group>
