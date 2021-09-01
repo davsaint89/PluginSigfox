@@ -2,6 +2,7 @@ import requests
 import json
 from unicodedata import normalize
 import re
+import time
 
 # global variables
 URL = "https://industrial.api.ubidots.com/api/v2.0/device_types/"
@@ -61,13 +62,38 @@ def normalize_label(label):
     label = label.lower()
     return label
 
-# device type creation
+# 
 def create_device_type(data, token, url):
+    """
+    Function to create a device_type
+    """
     headers = {"X-Auth-Token": token, "Content-Type": "application/json"}
-    response = requests.post(url,headers=headers, data=json.dumps(data))
+    response = create_request(URL, headers, attempts=5, request_type="post", data=json.dumps(data))
+
     return response
 
 
-
+def create_request(url, headers, attempts, request_type, data=None):
+    """
+    Function to make a request to the server
+    """
+    request_func = getattr(requests, request_type)
+    kwargs = {"url": url, "headers": headers}
+    if request_type == "post" or request_type == "patch":
+        kwargs["json"] = data
+    try:
+        req = request_func(**kwargs)
+        status_code = req.status_code
+        time.sleep(1)
+        while status_code >= 400 and attempts < 5:
+            req = request_func(**kwargs)
+            status_code = req.status_code
+            attempts += 1
+            time.sleep(1)
+        return req
+    except Exception as e:
+        print("[ERROR] There was an error with the request, details:")
+        print(e)
+        return None
 
 
