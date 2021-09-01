@@ -41,7 +41,7 @@ def setup(args):
 
     return {"status":"finished"}
 
-    
+# sets a device type normalizing its name  
 def set_device_type(device_type):
     device_type_data = {
     'name': device_type,
@@ -54,12 +54,14 @@ def set_device_type(device_type):
     }
     return device_type_data
 
+# normalizes a label to accepted characters
 def normalize_label(label):
     label = normalize('NFKD', label)
     label = re.sub('/[^a-z0-9-_:.]/g', '-', label)
     label = label.lower()
     return label
 
+# device type creation
 def create_device_type(data, token, url):
     headers = {"X-Auth-Token": token, "Content-Type": "application/json"}
     response = requests.post(url,headers=headers, data=json.dumps(data))
