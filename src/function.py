@@ -4,39 +4,33 @@ import time
 from user_code import format_payload
 
 
-
 BASE_URL = 'https://industrial.api.ubidots.com'
 
 def main(args):
+    """
+    Main function
+    """
+    token = args['_parameters'].get('token')
+    device_type = args['_parameters'].get('device_type')
 
-    if not args['_parameters'].get('token'):
+    if not token:
         print("[ERROR] Ubidots token not specified")
         return {"status":"error"}
     else:
         print("[INFO] args:", json.dumps(args))
-    
-        token = args['_parameters'].get('token')
-
-        if args['_parameters'].get('device_type')!= "": 
-
-            device_type = args['_parameters'].get('device_type')
-            args.pop('_parameters')
-
+        if device_type!= "": 
             device_label = args['device_id']
-            args.pop("device_id")
-
+            args.pop('_parameters')
             """ gets payload from user_code.py """
             payload = format_payload(args)
-
             print(payload)
             response = ubidots_request_dev_type(device_label, device_type, payload, token)
             print(response, response.json())
             return response.json()
-
-        else:  # if no device type assigned then it sends data to a device
+        else:  
             device_label = args['device_id']
             args.pop("device_id")
-            payload = json.dumps(format_payload(args))
+            payload = format_payload(args)
             response = ubidots_request_device(payload, device_label, token)
             print(response, response.json())
             return response.json()
@@ -44,7 +38,7 @@ def main(args):
  
 def ubidots_request_dev_type(device_label, device_type, payload, token):
     """
-    updates a device type
+    Updates a device under a device type
     """
     url = BASE_URL + '/api/v1.6/devices/' + device_label + '/?type=' + device_type
     headers = {
@@ -57,7 +51,7 @@ def ubidots_request_dev_type(device_label, device_type, payload, token):
 
 def ubidots_request_device(data, device_label, token):
     """
-    updates a device
+    Updates a device
     """
     url = BASE_URL + '/api/v1.6/devices/' + device_label
     headers = {
@@ -70,7 +64,7 @@ def ubidots_request_device(data, device_label, token):
 
 def create_request(url, headers, attempts, request_type, data=None):
     """
-    Function to make a request to the server
+    Makes an API request to the server
     """
     request_func = getattr(requests, request_type)
     kwargs = {"url": url, "headers": headers}
