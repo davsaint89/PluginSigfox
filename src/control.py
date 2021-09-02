@@ -7,12 +7,12 @@ import time
 """ global variables """
 
 URL = "https://industrial.api.ubidots.com/api/v2.0/device_types/"
-tti_main_color = '#0040E5'
-tti_secondary_color = '#6C95FF'
+sigfox_main_color = '#0040E5'
+sigfox_secondary_color = '#6C95FF'
 
 
 def setup(args):
-    """Detup function - runs when the plugin is created or edited"""
+    """Setup function - runs when the plugin is created or edited"""
     print("[INFO] args:", json.dumps(args))
     if not args['_parameters'].get('token'):
         print("[ERROR] Ubidots token not specified")
@@ -51,9 +51,9 @@ def set_device_type(device_type):
     device_type_data = {
     'name': device_type,
     'label': normalize_label(device_type),
-    'deviceColor': tti_main_color,
+    'deviceColor': sigfox_main_color,
     'deviceIcon': 'wifi',
-    'variableColor': tti_secondary_color,
+    'variableColor': sigfox_secondary_color,
     'properties': [],
         'variables': []
     }
