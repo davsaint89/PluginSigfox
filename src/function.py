@@ -9,7 +9,6 @@ BASE_URL = 'https://industrial.api.ubidots.com'
 
 def main(args):
 
-
     if not args['_parameters'].get('token'):
         print("[ERROR] Ubidots token not specified")
         return {"status":"error"}
@@ -25,15 +24,16 @@ def main(args):
 
             device_label = args['device_id']
             args.pop("device_id")
-            # gets payload from user_code.py
+
+            """ gets payload from user_code.py """
             payload = format_payload(args)
 
             print(payload)
             response = ubidots_request_dev_type(device_label, device_type, payload, token)
             print(response, response.json())
             return response.json()
-        
-        else:  # if no device type assigned it sends data to a device
+
+        else:  # if no device type assigned then it sends data to a device
             device_label = args['device_id']
             args.pop("device_id")
             payload = json.dumps(format_payload(args))

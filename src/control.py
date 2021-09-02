@@ -4,7 +4,8 @@ from unicodedata import normalize
 import re
 import time
 
-# global variables
+""" global variables """
+
 URL = "https://industrial.api.ubidots.com/api/v2.0/device_types/"
 tti_main_color = '#0040E5'
 tti_secondary_color = '#6C95FF'
@@ -68,7 +69,7 @@ def normalize_label(label):
     label = label.lower()
     return label
 
-# 
+
 def create_device_type(data, token):
     """
     Function to create a device_type

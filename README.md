@@ -12,7 +12,7 @@ In your [Ubidots account](https://industrial.ubidots.com/accounts/signin/)
 
 # Usage
 
-Once installed, go to 'Decoder' and then to 'Decoding Function' to write your script for decoding hex data. There's a test payload you may use to test your decoding function and once you are ready click on 'save&make live'.
+Once installed, go to 'Decoder' and then to 'Decoding Function' to write your script for decoding hex data. There's a test payload you may use to test your decoding function, once you are ready click on 'save&make live'.
 
 [Decoding example](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630360340/Customer%20Success/DocsAssets/plugin-sigfox/pruebaDecoding.gif)
 
