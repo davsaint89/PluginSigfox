@@ -9,7 +9,7 @@ URL = "https://industrial.api.ubidots.com/api/v2.0/device_types/"
 tti_main_color = '#0040E5'
 tti_secondary_color = '#6C95FF'
 
-# main ffunction
+
 def setup(args):
     """Detup function - runs when the plugin is created or edited"""
     print("[INFO] args:", json.dumps(args))
@@ -42,8 +42,11 @@ def setup(args):
 
     return {"status":"finished"}
 
-# sets a device type normalizing its name  
+ 
 def set_device_type(device_type):
+    """
+    sets a device type normalizing its name 
+    """
     device_type_data = {
     'name': device_type,
     'label': normalize_label(device_type),
@@ -55,8 +58,11 @@ def set_device_type(device_type):
     }
     return device_type_data
 
-# normalizes a label to accepted characters
+
 def normalize_label(label):
+    """
+    normalizes a label to accepted characters
+    """
     label = normalize('NFKD', label)
     label = re.sub('/[^a-z0-9-_:.]/g', '-', label)
     label = label.lower()
