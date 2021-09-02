@@ -51,7 +51,7 @@ def ubidots_request_dev_type(device_label, device_type, payload, token):
         "X-Auth-Token": token,
         "Content-Type": "application/json",
     }
-    response = create_request(url, headers, attempt=5,request_type='post',data=payload)
+    response = create_request(url, headers, attempts=5,request_type='post',data=payload)
     return response
 
 
