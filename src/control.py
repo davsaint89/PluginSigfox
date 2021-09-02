@@ -68,7 +68,7 @@ def create_device_type(data, token, url):
     Function to create a device_type
     """
     headers = {"X-Auth-Token": token, "Content-Type": "application/json"}
-    response = create_request(URL, headers, attempts=5, request_type="post", data=json.dumps(data))
+    response = create_request(URL, headers, attempts=5, request_type="post", data=data)
 
     return response
 
