@@ -80,6 +80,7 @@ def create_request(url, headers, attempts, request_type, data=None):
             attempts += 1
             time.sleep(1)
         return req
+        
     except Exception as e:
         print("[ERROR] There was an error with the request, details:")
         print(e)
