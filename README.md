@@ -20,7 +20,7 @@ Once installed, go to 'Decoder' and then to 'Decoding Function' to write your sc
 
 The decoding function must return a python dictionary with a valid data structure in order to provision the Ubidots device for instance: 
 
-{'variable1': {'value': '12.5', 'context':{'lat':-23.6, 'ln':45.2}}}
+{'variable1': {'value': '12.5', 'context':{'lat':-23.6, 'lng':45.2}}}
 
 # License
 [MIT]
