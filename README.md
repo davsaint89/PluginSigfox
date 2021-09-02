@@ -16,9 +16,9 @@ Once installed, go to 'Decoder' and then to 'Decoding Function' to write your sc
 
 [Decoding example](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630595732/Customer%20Success/DocsAssets/plugin-sigfox/decoding_example.gif)
 
-# return
+# Return
 
-The decoding function must return a python dictionary with a valid data structure in order to provision the Ubidots device for instance: 
+The decoding function must return a python dictionary with a valid data structure in order to provision the Ubidots device, for instance: 
 
 {'variable1': {'value': '12.5', 'context':{'lat':-23.6, 'lng':45.2}}}
 
