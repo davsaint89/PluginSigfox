@@ -74,7 +74,7 @@ def normalize_label(label):
 
 def create_device_type(data, token):
     """
-    Function to create a device_type
+    Creates a device_type
     """
     headers = {"X-Auth-Token": token, "Content-Type": "application/json"}
     response = create_request(URL, headers, attempts=5, request_type="post", data=data)
@@ -83,7 +83,7 @@ def create_device_type(data, token):
 
 def create_request(url, headers, attempts, request_type, data=None):
     """
-    Function to make a request to the server
+    Makes an API request
     """
     request_func = getattr(requests, request_type)
     kwargs = {"url": url, "headers": headers}
