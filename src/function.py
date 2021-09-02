@@ -3,58 +3,40 @@ import json
 import time
 from user_code import format_payload
 
-
 BASE_URL = 'https://industrial.api.ubidots.com'
 
 def main(args):
     """
     Main function
     """
+    print("[INFO] args:", json.dumps(args))
     token = args['_parameters'].get('token')
     device_type = args['_parameters'].get('device_type')
+    args.pop('_parameters')
 
     if not token:
         print("[ERROR] Ubidots token not specified")
         return {"status":"error"}
-    else:
-        print("[INFO] args:", json.dumps(args))
-        if device_type!= "": 
-            device_label = args['device_id']
-            args.pop('_parameters')
-            """ gets payload from user_code.py """
-            payload = format_payload(args)
-            print(payload)
-            response = ubidots_request_dev_type(device_label, device_type, payload, token)
-            print(response, response.json())
-            return response.json()
-        else:  
-            device_label = args['device_id']
-            args.pop('_parameters')
-            payload = format_payload(args)
-            response = ubidots_request_device(payload, device_label, token)
-            print(response, response.json())
-            return response.json()
     
- 
-def ubidots_request_dev_type(device_label, device_type, payload, token):
-    """
-    Updates a device under a device type
-    """
-    url = BASE_URL + '/api/v1.6/devices/' + device_label + '/?type=' + device_type
-    headers = {"X-Auth-Token": token,"Content-Type": "application/json"}
-    response = create_request(url, headers, attempts=5,request_type='post',data=payload)
-    return response
+    device_label = args['device_id']
+    payload = format_payload(args)
+    print(payload)
+    
+    url = f'{BASE_URL}/api/v1.6/devices/{device_label}'
+    if device_type is not None and device_type != "":
+        url = f'{url}?{device_type}'
+    
+    response = ubidots_request_device(url, payload, token)
+    print(response, response.json())
+    return response.json()
 
-
-def ubidots_request_device(data, device_label, token):
+def ubidots_request_device(url, data, token):
     """
     Updates a device
     """
-    url = BASE_URL + '/api/v1.6/devices/' + device_label
     headers = {"X-Auth-Token": token,"Content-Type": "application/json",}
     response = create_request(url, headers, attempts=5, data=data, request_type='post')
     return response
-
 
 def create_request(url, headers, attempts, request_type, data=None):
     """
