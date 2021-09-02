@@ -6,15 +6,16 @@ This plugin facilitates the communicacion between Sigfox and Ubidots by providin
 
 # Instalation 
 
-In your [Ubidots account](https://industrial.ubidots.com/accounts/signin/) you can follow this
-[Instalation](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630595722/Customer%20Success/DocsAssets/plugin-sigfox/plugin_instalation_2.gif)
-procedure.
+In your [Ubidots account](https://industrial.ubidots.com/accounts/signin/) follow this procedure.
+
+![Instalation](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630595722/Customer%20Success/DocsAssets/plugin-sigfox/plugin_instalation_2.gif)
+
 
 # Usage
 
 Once installed, go to 'Decoder' and then to 'Decoding Function' to write your script for decoding hex data. There's a test payload you may use to test your decoding function, once you are ready click on 'save&make live'.
 
-[Decoding example](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630595732/Customer%20Success/DocsAssets/plugin-sigfox/decoding_example.gif)
+![Decoding example](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630595732/Customer%20Success/DocsAssets/plugin-sigfox/decoding_example.gif)
 
 # Return
 
