@@ -6,9 +6,9 @@ This plugin facilitates the communicacion between Sigfox and Ubidots by providin
 
 # Instalation 
 
-In your [Ubidots account](https://industrial.ubidots.com/accounts/signin/)
+In your [Ubidots account](https://industrial.ubidots.com/accounts/signin/) you can follow this
 [Instalation](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630362242/Customer%20Success/DocsAssets/plugin-sigfox/plugin_instalation.gif)
-
+procedure.
 
 # Usage
 
