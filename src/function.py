@@ -29,7 +29,7 @@ def main(args):
             return response.json()
         else:  
             device_label = args['device_id']
-            args.pop("device_id")
+            args.pop('_parameters')
             payload = format_payload(args)
             response = ubidots_request_device(payload, device_label, token)
             print(response, response.json())
@@ -80,7 +80,7 @@ def create_request(url, headers, attempts, request_type, data=None):
             attempts += 1
             time.sleep(1)
         return req
-        
+
     except Exception as e:
         print("[ERROR] There was an error with the request, details:")
         print(e)
