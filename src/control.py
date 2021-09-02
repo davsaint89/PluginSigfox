@@ -29,7 +29,7 @@ def setup(args):
     if device_type != "":
         device_type_data = set_device_type(device_type)
         try:
-            res = create_device_type(device_type_data, token, URL)
+            res = create_device_type(device_type_data, token)
             print(res)
             if res.status_code == 409:
                 print("[INFO] A device type with this name already exists.")
@@ -63,7 +63,7 @@ def normalize_label(label):
     return label
 
 # 
-def create_device_type(data, token, url):
+def create_device_type(data, token):
     """
     Function to create a device_type
     """
