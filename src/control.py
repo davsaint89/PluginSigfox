@@ -4,7 +4,7 @@ from unicodedata import normalize
 import re
 import time
 
-""" global variables """
+""" Global variables """
 
 URL = "https://industrial.api.ubidots.com/api/v2.0/device_types/"
 sigfox_main_color = '#0040E5'
@@ -12,20 +12,21 @@ sigfox_secondary_color = '#6C95FF'
 
 
 def setup(args):
-    """Setup function - runs when the plugin is created or edited"""
+    """
+    Setup function - runs when the plugin is created or edited
+    """
     print("[INFO] args:", json.dumps(args))
-    if not args['_parameters'].get('token'):
+
+    token = args['_parameters'].get('token')
+    device_type = args['_parameters'].get('device_type')
+
+    if not token:
         print("[ERROR] Ubidots token not specified")
         return {"status":"error"}
 
-    elif not args['_parameters'].get('device_type') and args['_parameters']['token']:
+    elif not device_type and token:
         print("[INFO] device type not specified")
         device_type = ""
-        token = args['_parameters']['token']
-
-    else:
-        token = args['_parameters']['token']
-        device_type = args['_parameters']['device_type']
 
     if device_type != "":
         device_type_data = set_device_type(device_type)
@@ -36,8 +37,9 @@ def setup(args):
                 print("[INFO] A device type with this name already exists.")
             elif res.status_code == 201:
                 print("[INFO] Device type created successfully.")
-        except:
+        except Exception as e:
             print("[INFO] Setup function ran, but could not create a device type.")
+            print(e)
     else:
         print({"[INFO] No device type created"})
 
@@ -46,23 +48,23 @@ def setup(args):
  
 def set_device_type(device_type):
     """
-    sets a device type normalizing its name 
+    Sets a device type normalizing its name 
     """
     device_type_data = {
-    'name': device_type,
-    'label': normalize_label(device_type),
-    'deviceColor': sigfox_main_color,
-    'deviceIcon': 'wifi',
-    'variableColor': sigfox_secondary_color,
-    'properties': [],
-        'variables': []
+        'name': device_type,
+        'label': normalize_label(device_type),
+        'deviceColor': sigfox_main_color,
+        'deviceIcon': 'wifi',
+        'variableColor': sigfox_secondary_color,
+        'properties': [],
+            'variables': []
     }
     return device_type_data
 
 
 def normalize_label(label):
     """
-    normalizes a label to accepted characters
+    Normalizes a label to accepted characters
     """
     label = normalize('NFKD', label)
     label = re.sub('/[^a-z0-9-_:.]/g', '-', label)
@@ -76,7 +78,6 @@ def create_device_type(data, token):
     """
     headers = {"X-Auth-Token": token, "Content-Type": "application/json"}
     response = create_request(URL, headers, attempts=5, request_type="post", data=data)
-
     return response
 
 
