@@ -8,7 +8,7 @@ This plugin facilitates the communicacion between Sigfox and Ubidots by providin
 
 In your [Ubidots account](https://industrial.ubidots.com/accounts/signin/) follow this procedure.
 
-![Instalation](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630606254/Customer%20Success/DocsAssets/plugin-sigfox/instalation_4.gif)
+![Instalation](https://res.cloudinary.com/di2vaxvhl/image/upload/v1630606718/Customer%20Success/DocsAssets/plugin-sigfox/instalation_5.gif)
 
 
 # Usage
