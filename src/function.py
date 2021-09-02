@@ -27,6 +27,7 @@ def main(args):
             args.pop("device_id")
             # gets payload from user_code.py
             payload = format_payload(args)
+            
 
             print(payload)
             response = ubidots_request_dev_type(device_label, device_type, payload, token)
